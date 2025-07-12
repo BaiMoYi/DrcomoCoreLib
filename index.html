@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>DrcomoCoreLib JavaDocs</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">DrcomoCoreLib JavaDocs</h1>
+</header>
+<h1 id="drcomocorelib-api-文档查询规则"><strong>DrcomoCoreLib API
+文档查询规则</strong></h1>
+<p>当接收到与 DrcomoCoreLib
+开发相关的用户请求时，严格遵循以下规则，将所需功能映射到对应的API文档，并基于该文档提供解决方案。</p>
+<h2 id="api文档查询规则"><strong>API文档查询规则</strong></h2>
+<hr />
+<h3 id="日志记录">日志记录</h3>
+<ul>
+<li><strong>功能描述</strong>：实现或管理控制台日志输出，如
+<code>info</code>, <code>warn</code>,
+<code>error</code>，或动态设置日志级别。<br />
+</li>
+<li><strong>查询文档</strong>：<a
+href="./JavaDocs/util/DebugUtil-JavaDoc.md">查看</a></li>
+</ul>
+<h3 id="配置文件读写-yaml">配置文件读写 (YAML)</h3>
+<ul>
+<li><strong>功能描述</strong>：对 <code>.yml</code>
+文件进行加载、重载、保存、读写键值、复制默认配置、获取配置节等操作。<br />
+</li>
+<li><strong>查询文档</strong>：<a
+href="./JavaDocs/config/YamlUtil-JavaDoc.md">查看</a></li>
+</ul>
+<h3 id="文本颜色处理">文本颜色处理</h3>
+<ul>
+<li><strong>功能描述</strong>：翻译（<code>&amp;</code> →
+<code>§</code>）、转换（<code>&amp;#RRGGBB</code>）或剥离字符串中的
+Minecraft 颜色代码。<br />
+</li>
+<li><strong>查询文档</strong>：<a
+href="./JavaDocs/color/ColorUtil-JavaDoc.md">查看</a></li>
+</ul>
+<h3 id="发送消息与文本本地化">发送消息与文本本地化</h3>
+<ul>
+<li><strong>功能描述</strong>：发送游戏内消息（聊天、ActionBar、Title），解析多层级占位符（自定义、PAPI、内部），管理多语言文件。<br />
+</li>
+<li><strong>查询文档</strong>：<a
+href="./JavaDocs/message/MessageService-JavaDoc.md">查看</a></li>
+</ul>
+<h3 id="物品nbt数据操作">物品NBT数据操作</h3>
+<ul>
+<li><strong>功能描述</strong>：在 <code>ItemStack</code>
+上附加、读取、修改、删除或批量保留自定义数据标签。<br />
+</li>
+<li><strong>前置查询</strong>：<a
+href="./JavaDocs/nbt/NbtKeyHandler-JavaDoc.md">查看</a>（NBT键名安全策略）<br />
+</li>
+<li><strong>核心查询</strong>：<a
+href="./JavaDocs/nbt/NBTUtil-JavaDoc.md">查看</a>（具体NBT操作API）</li>
+</ul>
+<h3 id="placeholderapi-papi-集成">PlaceholderAPI (PAPI) 集成</h3>
+<ul>
+<li><strong>功能描述</strong>：注册自定义PAPI占位符（如
+<code>%myplugin_level%</code>）或解析含PAPI占位符的字符串。<br />
+</li>
+<li><strong>查询文档</strong>：<a
+href="./JavaDocs/hook/placeholder/PlaceholderAPIUtil-JavaDoc.md">查看</a></li>
+</ul>
+<h3 id="动态条件判断">动态条件判断</h3>
+<ul>
+<li><strong>功能描述</strong>：解析并计算包含PAPI占位符、逻辑运算符（<code>&amp;&amp;</code>,
+<code>||</code>）和比较运算符（<code>&gt;=</code>, <code>==</code>,
+<code>STR_CONTAINS</code>）的条件表达式。<br />
+</li>
+<li><strong>查询文档</strong>：<a
+href="./JavaDocs/hook/placeholder/parse/PlaceholderConditionEvaluator-JavaDoc.md">查看</a><br />
+</li>
+<li><strong>关联查询</strong>：<a
+href="./JavaDocs/hook/placeholder/parse/ParseException-JavaDoc.md">查看</a>（表达式解析异常处理）</li>
+</ul>
+<h3 id="经济系统交互-vault-playerpoints">经济系统交互 (Vault /
+PlayerPoints)</h3>
+<ul>
+<li><strong>功能描述</strong>：查询玩家余额、扣款、存款、格式化货币等操作。<br />
+</li>
+<li><strong>查询文档 1 (接口)</strong>：<a
+href="./JavaDocs/hook/economy/EconomyProvider-JavaDoc.md">查看</a>（通用经济接口）<br />
+</li>
+<li><strong>查询文档 2 (实现)</strong>：
+<ul>
+<li>Vault 对接：<a
+href="./JavaDocs/hook/economy/provider/VaultEconomyProvider-JavaDoc.md">查看</a><br />
+</li>
+<li>PlayerPoints 对接：<a
+href="./JavaDocs/hook/economy/provider/PlayerPointsEconomyProvider-JavaDoc.md">查看</a><br />
+</li>
+</ul></li>
+<li><strong>查询文档 3 (结果)</strong>：<a
+href="./JavaDocs/hook/economy/EconomyResponse-JavaDoc.md">查看</a>（经济操作返回对象）</li>
+</ul>
+<h3 id="数学公式计算">数学公式计算</h3>
+<ul>
+<li><strong>功能描述</strong>：计算字符串形式的数学表达式（支持变量）。<br />
+</li>
+<li><strong>查询文档</strong>：<a
+href="./JavaDocs/math/FormulaCalculator-JavaDoc.md">查看</a></li>
+</ul>
+<h3 id="音效管理">音效管理</h3>
+<ul>
+<li><strong>功能描述</strong>：从配置文件加载音效并通过键名（key）播放。<br />
+</li>
+<li><strong>查询文档</strong>：<a
+href="./JavaDocs/sound/SoundManager-JavaDoc.md">查看</a></li>
+</ul>
+<h3 id="gui-创建与交互"><strong>GUI 创建与交互</strong></h3>
+<ul>
+<li><strong>功能描述</strong>：构建交互式菜单、定义特定槽位的点击行为、管理GUI的打开与关闭、获取点击事件的详细信息或执行安全的GUI辅助操作。</li>
+<li><strong>前置概念查询</strong>：
+<ul>
+<li><a href="./JavaDocs/gui/interfaces/ClickAction-JavaDoc.md">查看</a>
+(理解定义 <strong>“做什么”</strong> 的回调)</li>
+<li><a
+href="./JavaDocs/gui/interfaces/SlotPredicate-JavaDoc.md">查看</a>
+(理解定义 <strong>“在哪里生效”</strong> 的条件)</li>
+</ul></li>
+<li><strong>核心逻辑查询 (事件分发)</strong>：<a
+href="./JavaDocs/gui/GuiActionDispatcher-JavaDoc.md">查看</a> (用于注册
+<code>ClickAction</code> 与 <code>SlotPredicate</code> 的组合)</li>
+<li><strong>关联查询 (会话管理)</strong>：<a
+href="./JavaDocs/gui/GUISessionManager-JavaDoc.md">查看</a>
+(用于打开、关闭、验证玩家的GUI会话)</li>
+<li><strong>关联查询 (数据载体)</strong>：<a
+href="./JavaDocs/gui/ClickContext-JavaDoc.md">查看</a>
+(用于在回调中获取点击类型、玩家等上下文信息)</li>
+<li><strong>关联查询 (辅助工具)</strong>：<a
+href="./JavaDocs/gui/GuiManager-JavaDoc.md">查看</a>
+(用于安全播放音效、清理光标、检查危险点击等)</li>
+</ul>
+<h3 id="数据库操作-sqlite">数据库操作 (SQLite)</h3>
+<ul>
+<li><strong>功能描述</strong>：连接管理 SQLite
+数据库，初始化表结构，执行增删改查（CRUD）、事务处理。<br />
+</li>
+<li><strong>查询文档</strong>：<a
+href="./JavaDocs/database">查看</a></li>
+</ul>
+</body>
+</html>
