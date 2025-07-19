@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>GuiManager-JavaDoc</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">GuiManager-JavaDoc</h1>
+</header>
+<h3 id="guimanager.java"><code>GuiManager.java</code></h3>
+<p><strong>1. 概述 (Overview)</strong></p>
+<ul>
+<li><strong>完整路径:</strong>
+<code>cn.drcomo.corelib.gui.GuiManager</code></li>
+<li><strong>核心职责:</strong> 提供与 GUI
+操作相关的辅助能力，包括危险点击检测、光标清理以及安全播放音效；</li>
+</ul>
+<p><strong>2. 如何实例化 (Initialization)</strong></p>
+<ul>
+<li><p><strong>核心思想:</strong>
+这是一个<em>可实例化</em>的服务类，每个子插件应为其创建独立实例，并通过构造函数注入
+<code>DebugUtil</code> 以获得符合自身日志级别的输出。</p></li>
+<li><p><strong>构造函数:</strong>
+<code>public GuiManager(DebugUtil logger)</code></p></li>
+<li><p><strong>代码示例:</strong></p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 在你的子插件 onEnable() 方法中</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>DebugUtil logger <span class="op">=</span> <span class="kw">new</span> <span class="fu">DebugUtil</span><span class="op">(</span><span class="kw">this</span><span class="op">,</span> DebugUtil<span class="op">.</span><span class="fu">LogLevel</span><span class="op">.</span><span class="fu">DEBUG</span><span class="op">);</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>GuiManager guiManager <span class="op">=</span> <span class="kw">new</span> <span class="fu">GuiManager</span><span class="op">(</span>logger<span class="op">);</span></span></code></pre></div></li>
+</ul>
+<p><strong>3. 公共API方法 (Public API Methods)</strong></p>
+<ul>
+<li><h4
+id="boolean-isdangerousclickclicktype-click"><code>boolean isDangerousClick(ClickType click)</code></h4>
+<ul>
+<li><strong>功能描述:</strong> 判断一次 Bukkit <code>ClickType</code>
+是否属于<strong>危险交互</strong>，若命中则应在 GUI
+层面立即拦截，防止非法放置、物品复制或丢失等问题。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>click</code> (<code>ClickType</code>) —
+触发事件的点击类型；传入 <code>null</code> 时同样视为危险操作。</li>
+</ul></li>
+<li><strong>返回值:</strong>
+<ul>
+<li><code>true</code> — 危险点击，需拦截；</li>
+<li><code>false</code> — 安全点击，可继续处理。</li>
+</ul></li>
+<li><strong>判定逻辑:</strong> 依次匹配下列任一条件即返回
+<code>true</code>：
+<ul>
+<li><code>click.isShiftClick()</code>     // Shift-单击或
+Shift-双击</li>
+<li><code>click.isKeyboardClick()</code>   // 数字键、Q
+键等快捷键操作</li>
+<li><code>click.isCreativeAction()</code>  // 创意模式特有点击</li>
+<li><code>click == ClickType.DOUBLE_CLICK</code> // 双击</li>
+<li><code>click == ClickType.SWAP_OFFHAND</code> // 主/副手物品交换</li>
+<li><code>click == ClickType.CONTROL_DROP</code> // Ctrl + Q 丢弃</li>
+<li><code>click == ClickType.NUMBER_KEY</code>  // 数字键替换槽位</li>
+<li><code>click == ClickType.DROP</code>     // Q 键丢弃</li>
+<li><code>click == ClickType.UNKNOWN</code>   //
+未知类型（保险起见必拦截）</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="void-clearcursorplayer-player-inventoryclickevent-event"><code>void clearCursor(Player player, InventoryClickEvent event)</code></h4>
+<ul>
+<li><strong>功能描述:</strong>
+清空玩家鼠标光标上的物品堆，更新背包视图；若出现异常将记录到日志。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>player</code> (<code>Player</code>): 目标玩家。</li>
+<li><code>event</code> (<code>InventoryClickEvent</code>):
+原始事件对象。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="void-safeplaysoundplayer-player-sound-sound-float-volume-float-pitch"><code>void safePlaySound(Player player, Sound sound, float volume, float pitch)</code></h4>
+<ul>
+<li><strong>功能描述:</strong>
+在指定玩家位置播放音效；如播放失败（版本兼容或其他异常），异常将被捕获并记录。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>player</code> (<code>Player</code>): 目标玩家。</li>
+<li><code>sound</code> (<code>Sound</code>): 音效枚举。</li>
+<li><code>volume</code> (<code>float</code>): 音量 (0.0 ~ 1.0)。</li>
+<li><code>pitch</code> (<code>float</code>): 音调 (0.5 ~ 2.0)。</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>4. 注意事项 (Cautions)</strong> *
+<strong>光标清理边界：</strong> -
+清理光标物品时应先判断业务场景，避免误删玩家重要物品。 - 建议只在自定义
+GUI 区域内调用 clearCursor，玩家背包操作应放行。</p>
+<ul>
+<li><strong>危险点击检测局限：</strong>
+<ul>
+<li>isDangerousClick 仅基于 ClickType
+判断，部分特殊操作需业务层二次校验。</li>
+<li>对于复杂交互（如拖拽、批量操作），建议结合事件类型和业务逻辑综合判断。</li>
+</ul></li>
+<li><strong>批量物品处理建议：</strong>
+<ul>
+<li>大量物品操作建议分批处理，避免主线程卡顿。</li>
+<li>物品发放失败时应有兜底逻辑（如自动掉落）。</li>
+</ul></li>
+<li><strong>与业务层协作：</strong>
+<ul>
+<li>GuiManager 只做通用处理，具体业务规则应由调用方实现。</li>
+</ul></li>
+<li><strong>跨版本兼容：</strong>
+<ul>
+<li>不同 Minecraft / Bukkit 版本的 <code>ClickType</code>
+枚举可能变动，升级核心库或 Spigot 版本后，应复核
+<code>isDangerousClick</code> 判定规则。</li>
+</ul></li>
+</ul>
+<p><strong>5. 性能隐患与优化建议 (Performance Risks &amp;
+Optimization)</strong></p>
+<ul>
+<li><strong>高频事件</strong>：背包事件与移动事件并列为顶级高频，禁止在主线程执行
+O(n²) 搜索或 NBT 深拷贝。将静态常量（如允许操作的 material 列表）缓存到
+<code>static final Set&lt;Material&gt;</code>，避免每次事件重建。</li>
+<li><strong>同步 vs. 异步</strong>：所有 Bukkit API
+的物品栈修改必须在主线程。若业务逻辑需异步（数据库 /
+HTTP），请先复制轻量数据异步处理，再把结果
+<code>Bukkit.getScheduler().runTask(plugin, () -&gt; {...})</code>
+回主线程写入物品。</li>
+<li><strong>反射调用开销</strong>：反射仅用于初始化时探测 &amp; 缓存
+<code>MethodHandle</code>，运行期用缓存对象调用。</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>NBTUtil-JavaDoc</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">NBTUtil-JavaDoc</h1>
+</header>
+<h3 id="nbtutil.java"><code>NBTUtil.java</code></h3>
+<p><strong>1. 概述 (Overview)</strong></p>
+<ul>
+<li><strong>完整路径:</strong>
+<code>cn.drcomo.corelib.nbt.NBTUtil</code></li>
+<li><strong>核心职责:</strong> 一个基于 <code>tr7zw.item-nbt-api</code>
+的通用 NBT 工具类，它封装了对 <code>ItemStack</code> NBT
+数据进行增、删、改、查的各种操作。通过结合 <code>NbtKeyHandler</code>
+策略，它能够以一种安全、带命名空间的方式来管理插件私有的物品数据，并提供了对多种
+NBT 数据类型的深拷贝支持。</li>
+</ul>
+<p><strong>2. 如何实例化 (Initialization)</strong></p>
+<ul>
+<li><p><strong>核心思想:</strong> <code>NBTUtil</code>
+的设计强制要求开发者提供一个 <code>NbtKeyHandler</code> 实现，以确保所有
+NBT 操作都是带前缀、避免冲突的。实例化时，需要传入你为插件定制的
+<code>NbtKeyHandler</code> 和一个 <code>DebugUtil</code>
+实例用于日志记录。</p></li>
+<li><p><strong>构造函数:</strong>
+<code>public NBTUtil(NbtKeyHandler handler, DebugUtil logger)</code></p></li>
+<li><p><strong>代码示例:</strong></p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 在你的子插件 onEnable() 方法中:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Plugin myPlugin <span class="op">=</span> <span class="kw">this</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>DebugUtil myLogger <span class="op">=</span> <span class="kw">new</span> <span class="fu">DebugUtil</span><span class="op">(</span>myPlugin<span class="op">,</span> DebugUtil<span class="op">.</span><span class="fu">LogLevel</span><span class="op">.</span><span class="fu">INFO</span><span class="op">);</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">// 1. 先创建 NbtKeyHandler 的实现</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dt">final</span> <span class="bu">String</span> nbtPrefix <span class="op">=</span> myPlugin<span class="op">.</span><span class="fu">getName</span><span class="op">().</span><span class="fu">toLowerCase</span><span class="op">()</span> <span class="op">+</span> <span class="st">&quot;_&quot;</span><span class="op">;</span> <span class="co">// 定义一个对你的插件唯一的 NBT 前缀</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>NbtKeyHandler myNbtKeyHandler <span class="op">=</span> <span class="kw">new</span> <span class="fu">NbtKeyHandler</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">isValidKey</span><span class="op">(</span><span class="bu">String</span> fullKey<span class="op">)</span> <span class="op">{</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> fullKey <span class="op">!=</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> fullKey<span class="op">.</span><span class="fu">startsWith</span><span class="op">(</span>nbtPrefix<span class="op">);</span> </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">addPrefix</span><span class="op">(</span><span class="bu">String</span> key<span class="op">)</span> <span class="op">{</span> </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> nbtPrefix <span class="op">+</span> key<span class="op">;</span> </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">removePrefix</span><span class="op">(</span><span class="bu">String</span> fullKey<span class="op">)</span> <span class="op">{</span> </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fu">isValidKey</span><span class="op">(</span>fullKey<span class="op">)</span> <span class="op">?</span> fullKey<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>nbtPrefix<span class="op">.</span><span class="fu">length</span><span class="op">())</span> <span class="op">:</span> fullKey<span class="op">;</span> </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">// 2. 用创建好的 handler 和 logger 初始化 NBTUtil</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>NBTUtil nbtUtil <span class="op">=</span> <span class="kw">new</span> <span class="fu">NBTUtil</span><span class="op">(</span>myNbtKeyHandler<span class="op">,</span> myLogger<span class="op">);</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>myLogger<span class="op">.</span><span class="fu">info</span><span class="op">(</span><span class="st">&quot;NBT 工具已初始化。&quot;</span><span class="op">);</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">// 现在你可以使用 nbtUtil 来安全地操作物品的 NBT 了</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">// ItemStack item = new ItemStack(Material.DIAMOND_SWORD);</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">// ItemStack modifiedItem = nbtUtil.setString(item, &quot;owner_uuid&quot;, player.getUniqueId().toString());</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">// player.getInventory().addItem(modifiedItem);</span></span></code></pre></div></li>
+</ul>
+<p><strong>3. 公共API方法 (Public API Methods)</strong></p>
+<ul>
+<li><h4
+id="getintitemstack-item-string-key-int-def"><code>getInt(ItemStack item, String key, int def)</code></h4>
+<ul>
+<li><p><strong>返回类型:</strong> <code>int</code></p></li>
+<li><p><strong>功能描述:</strong> 从物品的 NBT
+中安全地读取一个整数值。</p></li>
+<li><p><strong>参数说明:</strong></p>
+<ul>
+<li><code>item</code> (<code>ItemStack</code>): 要读取的物品。</li>
+<li><code>key</code> (<code>String</code>): NBT
+键名（<strong>无需</strong>手动加前缀，方法内部会通过
+<code>NbtKeyHandler</code> 处理）。</li>
+<li><code>def</code> (<code>int</code>): 如果物品为
+<code>null</code>、键不存在或发生任何读取异常时，返回的默认值。</li>
+</ul></li>
+<li><p><strong>使用示例:</strong></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> level <span class="op">=</span> nbtUtil<span class="op">.</span><span class="fu">getInt</span><span class="op">(</span>item<span class="op">,</span> <span class="st">&quot;level&quot;</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span></code></pre></div></li>
+</ul></li>
+<li><h4
+id="setintitemstack-item-string-key-int-val"><code>setInt(ItemStack item, String key, int val)</code></h4>
+<ul>
+<li><p><strong>返回类型:</strong> <code>ItemStack</code></p></li>
+<li><p><strong>功能描述:</strong> 向物品的 NBT
+中写入一个整数值。<strong>重要：</strong> 此方法遵循 NBT-API
+的不可变性设计，它会返回一个包含修改后 NBT 的<strong>全新
+<code>ItemStack</code> 克隆</strong>，原始的 <code>item</code>
+对象不会被改变。你必须用此方法的返回值来更新你的物品变量。</p></li>
+<li><p><strong>参数说明:</strong></p>
+<ul>
+<li><code>item</code> (<code>ItemStack</code>): 要修改的物品。</li>
+<li><code>key</code> (<code>String</code>): NBT
+键名（无需加前缀）。</li>
+<li><code>val</code> (<code>int</code>): 要写入的整数值。</li>
+</ul></li>
+<li><p><strong>使用示例:</strong></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ItemStack sword <span class="op">=</span> player<span class="op">.</span><span class="fu">getInventory</span><span class="op">().</span><span class="fu">getItemInMainHand</span><span class="op">();</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 错误的做法: nbtUtil.setInt(sword, &quot;damage&quot;, 100); (这行代码的效果被丢弃了)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">// 正确的做法:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>sword <span class="op">=</span> nbtUtil<span class="op">.</span><span class="fu">setInt</span><span class="op">(</span>sword<span class="op">,</span> <span class="st">&quot;damage&quot;</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>player<span class="op">.</span><span class="fu">getInventory</span><span class="op">().</span><span class="fu">setItemInMainHand</span><span class="op">(</span>sword<span class="op">);</span></span></code></pre></div></li>
+</ul></li>
+<li><h4
+id="getstringitemstack-item-string-key-string-def"><code>getString(ItemStack item, String key, String def)</code></h4>
+<ul>
+<li><p><strong>返回类型:</strong> <code>String</code></p></li>
+<li><p><strong>功能描述:</strong> 从物品的 NBT
+中安全地读取一个字符串值。</p></li>
+<li><p><strong>参数说明:</strong></p>
+<ul>
+<li><code>item</code> (<code>ItemStack</code>): 目标物品。</li>
+<li><code>key</code> (<code>String</code>): NBT
+键名（无需加前缀）。</li>
+<li><code>def</code> (<code>String</code>): 默认值。</li>
+</ul></li>
+<li><p><strong>使用示例:</strong></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> crafterName <span class="op">=</span> nbtUtil<span class="op">.</span><span class="fu">getString</span><span class="op">(</span>item<span class="op">,</span> <span class="st">&quot;crafter&quot;</span><span class="op">,</span> <span class="st">&quot;未知工匠&quot;</span><span class="op">);</span></span></code></pre></div></li>
+</ul></li>
+<li><h4
+id="setstringitemstack-item-string-key-string-val"><code>setString(ItemStack item, String key, String val)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>ItemStack</code></li>
+<li><strong>功能描述:</strong> 向物品的 NBT
+中写入一个字符串值。同样返回一个新的克隆物品。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>item</code> (<code>ItemStack</code>): 目标物品。</li>
+<li><code>key</code> (<code>String</code>): NBT
+键名（无需加前缀）。</li>
+<li><code>val</code> (<code>String</code>): 要写入的字符串值。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="haskeyitemstack-item-string-key"><code>hasKey(ItemStack item, String key)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>boolean</code></li>
+<li><strong>功能描述:</strong> 检查物品的 NBT
+中是否存在指定的键（方法内部已自动处理前缀）。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>item</code> (<code>ItemStack</code>): 目标物品。</li>
+<li><code>key</code> (<code>String</code>): NBT
+键名（无需加前缀）。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="removekeyitemstack-item-string-key"><code>removeKey(ItemStack item, String key)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>ItemStack</code></li>
+<li><strong>功能描述:</strong> 从物品的 NBT
+中移除一个键值对。同样返回一个新的克隆物品。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>item</code> (<code>ItemStack</code>): 目标物品。</li>
+<li><code>key</code> (<code>String</code>): 要移除的 NBT
+键名（无需加前缀）。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="scanpluginnbtkeysitemstack-item"><code>scanPluginNBTKeys(ItemStack item)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>Set&lt;String&gt;</code></li>
+<li><strong>功能描述:</strong> 扫描一个物品的所有 NBT
+键，并返回一个只包含那些符合本插件前缀（由 <code>NbtKeyHandler</code>
+定义）的、<strong>完整的键名</strong>（即包含前缀）的集合。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>item</code> (<code>ItemStack</code>): 要扫描的物品。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="haspluginkeyitemstack-item-string-customkey"><code>hasPluginKey(ItemStack item, String customKey)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>boolean</code></li>
+<li><strong>功能描述:</strong> <code>hasKey</code>
+的别名，语义上更清晰地表示正在检查一个属于本插件的自定义键。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>item</code> (<code>ItemStack</code>): 目标物品。</li>
+<li><code>customKey</code> (<code>String</code>):
+自定义键名（不含前缀）。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="checkpluginkeysitemstack-item-setstring-customkeys"><code>checkPluginKeys(ItemStack item, Set&lt;String&gt; customKeys)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>Set&lt;String&gt;</code></li>
+<li><strong>功能描述:</strong>
+检查一个自定义键集合中，哪些键实际存在于物品的 NBT
+中。返回的是<strong>存在</strong>的、<strong>带前缀</strong>的完整键名集合。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>item</code> (<code>ItemStack</code>): 目标物品。</li>
+<li><code>customKeys</code> (<code>Set&lt;String&gt;</code>):
+一个包含待检查的、不带前缀的自定义键的集合。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="batchpreserveitemstack-src-itemstack-dst-setstring-customkeys"><code>batchPreserve(ItemStack src, ItemStack dst, Set&lt;String&gt; customKeys)</code></h4>
+<ul>
+<li><p><strong>返回类型:</strong> <code>ItemStack</code></p></li>
+<li><p><strong>功能描述:</strong>
+批量地将源物品（<code>src</code>）中指定的 NBT
+数据，深拷贝到目标物品（<code>dst</code>）中。这在物品合成、修复或升级后需要保留特定自定义数据（如绑定信息、特殊属性）的场景中非常有用。它返回修改后的
+<code>dst</code> 物品的克隆。</p></li>
+<li><p><strong>参数说明:</strong></p>
+<ul>
+<li><code>src</code> (<code>ItemStack</code>): NBT 数据的来源物品。</li>
+<li><code>dst</code> (<code>ItemStack</code>): 要接收 NBT
+数据的目标物品。</li>
+<li><code>customKeys</code> (<code>Set&lt;String&gt;</code>):
+一个包含所有需要保留的、不带前缀的自定义键的集合。</li>
+</ul></li>
+<li><p><strong>使用示例:</strong></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 在铁砧合成事件中，保留神器的 &quot;soulbound&quot; 标签</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ItemStack originalItem <span class="op">=</span> event<span class="op">.</span><span class="fu">getInventory</span><span class="op">().</span><span class="fu">getItem</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ItemStack resultItem <span class="op">=</span> event<span class="op">.</span><span class="fu">getResult</span><span class="op">();</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>nbtUtil<span class="op">.</span><span class="fu">hasKey</span><span class="op">(</span>originalItem<span class="op">,</span> <span class="st">&quot;soulbound&quot;</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Set</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> keysToKeep <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashSet</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    keysToKeep<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="st">&quot;soulbound&quot;</span><span class="op">);</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    resultItem <span class="op">=</span> nbtUtil<span class="op">.</span><span class="fu">batchPreserve</span><span class="op">(</span>originalItem<span class="op">,</span> resultItem<span class="op">,</span> keysToKeep<span class="op">);</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    event<span class="op">.</span><span class="fu">setResult</span><span class="op">(</span>resultItem<span class="op">);</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div></li>
+</ul></li>
+<li><h4
+id="preservesingleitemstack-src-itemstack-dst-string-customkey"><code>preserveSingle(ItemStack src, ItemStack dst, String customKey)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>ItemStack</code></li>
+<li><strong>功能描述:</strong> <code>batchPreserve</code>
+的便捷版本，用于仅保留单个 NBT 键。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>src</code> (<code>ItemStack</code>): 源物品。</li>
+<li><code>dst</code> (<code>ItemStack</code>): 目标物品。</li>
+<li><code>customKey</code> (<code>String</code>):
+要保留的单个自定义键（不带前缀）。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="cleanupinvalidkeyssetstring-keys"><code>cleanupInvalidKeys(Set&lt;String&gt; keys)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>Set&lt;String&gt;</code></li>
+<li><strong>功能描述:</strong>
+这是一个辅助工具方法，用于从一个给定的键集合中，筛选出所有不符合本插件前缀策略的”无效”键。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>keys</code> (<code>Set&lt;String&gt;</code>):
+一个包含完整键名（带前缀）的集合。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="addprefixstring-customkey"><code>addPrefix(String customKey)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>String</code></li>
+<li><strong>功能描述:</strong> 直接调用 <code>NbtKeyHandler</code> 的
+<code>addPrefix</code> 方法，为自定义键添加插件前缀。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>customKey</code> (<code>String</code>):
+自定义键名（不含前缀）。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="removeprefixstring-fullkey"><code>removePrefix(String fullKey)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>String</code></li>
+<li><strong>功能描述:</strong> 直接调用 <code>NbtKeyHandler</code> 的
+<code>removePrefix</code> 方法，从完整键中移除插件前缀。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>fullKey</code> (<code>String</code>):
+完整键名（含前缀）。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="torawstringitemstack-item"><code>toRawString(ItemStack item)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>String</code></li>
+<li><strong>功能描述:</strong> 获取目标物品完整 NBT
+数据的字符串表示（SNBT 格式），便于日志输出和人工比对。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>item</code> (<code>ItemStack</code>): 目标物品。</li>
+</ul></li>
+<li><strong>返回格式说明:</strong>
+<ul>
+<li>返回值为标准 SNBT（Stringified Named Binary Tag）格式，类似
+JSON，但字段顺序、类型与 Minecraft NBT 规范一致。</li>
+<li>例如：<code>{id:"minecraft:diamond_sword",Count:1b,tag:{display:{Name:"\"神器\""},CustomModelData:1234}}</code></li>
+<li>若物品无 NBT 或异常，返回 “{}”。</li>
+</ul></li>
+<li><strong>典型用途:</strong>
+<ul>
+<li>适合直接打印日志、人工比对、与 NBTExplorer/NBT Exporter
+等工具输出对照。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="getrawcompounditemstack-item"><code>getRawCompound(ItemStack item)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>Object</code> (运行时实际为
+<code>ReadWriteNBT</code>)</li>
+<li><strong>功能描述:</strong> 获取物品的原始 NBT Compound
+对象，以供高级自定义读取/写入或序列化操作。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>item</code> (<code>ItemStack</code>): 目标物品。</li>
+</ul></li>
+<li><strong>返回格式说明:</strong>
+<ul>
+<li>返回值为 NBT-API 的 <code>ReadWriteNBT</code> 实例，可直接调用其 API
+进行 NBT 结构的遍历、读取、写入、序列化等操作。</li>
+<li>例如：<code>compound.getString("id")</code>、<code>compound.toString()</code>（同样为
+SNBT 格式）。</li>
+<li>若物品无 NBT 或异常，返回 <code>null</code>。</li>
+</ul></li>
+<li><strong>典型用途:</strong>
+<ul>
+<li>适合插件开发者进行复杂 NBT 结构处理、批量操作、或自定义导出。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="fromrawstringstring-nbtstring"><code>fromRawString(String nbtString)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>ItemStack</code></li>
+<li><strong>功能描述:</strong> 将 SNBT/JSON 字符串反序列化为
+ItemStack；若解析失败抛出 <code>ParseException</code>。</li>
+<li><strong>返回格式说明:</strong> 解析遵循 NBT-API
+<code>NBT.parseNBT</code> 规范，支持标准 SNBT，如
+<code>{id:"minecraft:stone",Count:1b}</code>。</li>
+</ul></li>
+<li><h4
+id="getallnbtitemstack-item-setallnbtitemstack-item-mapstringobject-nbtmap"><code>getAllNbt(ItemStack item)</code>
+/
+<code>setAllNbt(ItemStack item, Map&lt;String,Object&gt; nbtMap)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>Map&lt;String,Object&gt;</code> /
+<code>ItemStack</code></li>
+<li><strong>功能描述:</strong> 递归读取或批量写入物品全部 NBT 数据；Map
+支持嵌套 <code>Map</code> 与 <code>List</code> 结构。</li>
+<li><strong>返回格式说明:</strong>
+<ul>
+<li>Map 的键为原始 NBT 键名，值类型映射 Java
+基础类型、<code>byte[]/int[]/long[]</code>、<code>Map</code>、<code>List</code>（List
+支持 String/Number/Compound）。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="getrawitemstack-string-setrawitemstackstringobject"><code>getRaw(ItemStack, String)</code>
+/ <code>setRaw(ItemStack,String,Object)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>Object</code> /
+<code>ItemStack</code></li>
+<li><strong>功能描述:</strong> 直接读取/写入原生 NBT
+键，不自动添加前缀；支持全部基础类型及数组。</li>
+</ul></li>
+<li><h4
+id="toprettystringitemstack-item"><code>toPrettyString(ItemStack item)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>String</code></li>
+<li><strong>功能描述:</strong> 输出带缩进的美化
+SNBT，方便人工阅读。</li>
+</ul></li>
+<li><h4
+id="exportpluginnbtitemstack-importpluginnbtitemstackstring"><code>exportPluginNbt(ItemStack)</code>
+/ <code>importPluginNbt(ItemStack,String)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>String</code> /
+<code>ItemStack</code></li>
+<li><strong>功能描述:</strong> 仅导出/导入符合当前
+<code>NbtKeyHandler</code> 前缀的自定义 NBT
+区域，便于数据迁移与备份。</li>
+<li><strong>返回格式说明:</strong> 同 SNBT；导入时仅处理带前缀键。</li>
+</ul></li>
+</ul>
+</body>
+</html>

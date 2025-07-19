@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>MessageService-JavaDoc</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">MessageService-JavaDoc</h1>
+</header>
+<h3 id="messageservice.java"><code>MessageService.java</code></h3>
+<p><strong>1. 概述 (Overview)</strong></p>
+<ul>
+<li><strong>完整路径:</strong>
+<code>cn.drcomo.corelib.message.MessageService</code></li>
+<li><strong>核心职责:</strong>
+一个功能全面的消息管理和发送服务。它整合了语言文件加载、多级占位符解析（包括自定义占位符、内部占位符和
+PAPI
+占位符）、颜色代码翻译以及多种消息发送渠道（聊天、ActionBar、Title），为插件提供了一个强大而灵活的本地化消息解决方案。</li>
+</ul>
+<p><strong>2. 如何实例化 (Initialization)</strong></p>
+<ul>
+<li><p><strong>核心思想:</strong>
+这是一个高度集成的服务类，它的实例化依赖于核心库的多个其他组件。你需要首先创建好
+<code>DebugUtil</code>, <code>YamlUtil</code>, 和
+<code>PlaceholderAPIUtil</code>
+的实例，然后将它们与插件实例、语言文件路径和可选的消息键前缀一同传入构造函数。</p></li>
+<li><p><strong>构造函数:</strong>
+<code>public MessageService(Plugin plugin, DebugUtil logger, YamlUtil yamlUtil, PlaceholderAPIUtil placeholderUtil, String langConfigPath, String keyPrefix)</code></p></li>
+<li><p><strong>代码示例:</strong></p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 在你的子插件 onEnable() 方法中:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Plugin myPlugin <span class="op">=</span> <span class="kw">this</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>DebugUtil myLogger <span class="op">=</span> <span class="kw">new</span> <span class="fu">DebugUtil</span><span class="op">(</span>myPlugin<span class="op">,</span> DebugUtil<span class="op">.</span><span class="fu">LogLevel</span><span class="op">.</span><span class="fu">INFO</span><span class="op">);</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>YamlUtil myYamlUtil <span class="op">=</span> <span class="kw">new</span> <span class="fu">YamlUtil</span><span class="op">(</span>myPlugin<span class="op">,</span> myLogger<span class="op">);</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>PlaceholderAPIUtil myPapiUtil <span class="op">=</span> <span class="kw">new</span> <span class="fu">PlaceholderAPIUtil</span><span class="op">(</span>myPlugin<span class="op">,</span> <span class="st">&quot;myplugin&quot;</span><span class="op">);</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">// (在此处为 myPapiUtil 注册你的 PAPI 占位符...)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">// 定义语言文件的路径和消息键的前缀</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">// 这会加载 plugins/YourPlugin/languages/zh_CN.yml 文件</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> languageFilePath <span class="op">=</span> <span class="st">&quot;languages/zh_CN&quot;</span><span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">// 所有通过 get/parse 等方法获取的消息键都会自动加上此前缀</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> messageKeyPrefix <span class="op">=</span> <span class="st">&quot;messages.my_plugin.&quot;</span><span class="op">;</span> </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">// 实例化 MessageService</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>MessageService messageService <span class="op">=</span> <span class="kw">new</span> <span class="fu">MessageService</span><span class="op">(</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    myPlugin<span class="op">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    myLogger<span class="op">,</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    myYamlUtil<span class="op">,</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    myPapiUtil<span class="op">,</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    languageFilePath<span class="op">,</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    messageKeyPrefix</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="op">);</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">// 实例化后，你可以注册内部占位符 {key:args}</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">// 示例：注册一个 {money} 占位符，显示玩家余额</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">// 假设你已经有了一个 EconomyProvider 实例 eco</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>messageService<span class="op">.</span><span class="fu">registerInternalPlaceholder</span><span class="op">(</span><span class="st">&quot;money&quot;</span><span class="op">,</span> <span class="op">(</span>player<span class="op">,</span> args<span class="op">)</span> <span class="op">-&gt;</span> <span class="op">{</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>player <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="cf">return</span> <span class="st">&quot;N/A&quot;</span><span class="op">;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> eco<span class="op">.</span><span class="fu">format</span><span class="op">(</span>eco<span class="op">.</span><span class="fu">getBalance</span><span class="op">(</span>player<span class="op">));</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="op">});</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>myLogger<span class="op">.</span><span class="fu">info</span><span class="op">(</span><span class="st">&quot;消息服务已启动。&quot;</span><span class="op">);</span></span></code></pre></div></li>
+</ul>
+<p><strong>3. 公共API方法 (Public API Methods)</strong></p>
+<ul>
+<li><h4 id="reloadlanguages"><code>reloadLanguages()</code></h4>
+<ul>
+<li><p><strong>返回类型:</strong> <code>void</code></p></li>
+<li><p><strong>功能描述:</strong>
+重新从磁盘加载语言文件，并刷新内存中的消息缓存。当需要热重载配置文件时（例如，通过指令重载插件），应调用此方法以确保消息是最新的。</p></li>
+<li><p><strong>参数说明:</strong> 无。</p></li>
+<li><p><strong>使用示例:</strong></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 在你的插件重载指令的执行逻辑中</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">onCommand</span><span class="op">(</span>CommandSender sender<span class="op">,</span> Command cmd<span class="op">,</span> <span class="bu">String</span> label<span class="op">,</span> <span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>args<span class="op">.</span><span class="fu">length</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> args<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">equalsIgnoreCase</span><span class="op">(</span><span class="st">&quot;reload&quot;</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ... 其他重载逻辑 ...</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        messageService<span class="op">.</span><span class="fu">reloadLanguages</span><span class="op">();</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        sender<span class="op">.</span><span class="fu">sendMessage</span><span class="op">(</span><span class="st">&quot;语言文件已重新加载。&quot;</span><span class="op">);</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div></li>
+</ul></li>
+<li><h4 id="getrawstring-key"><code>getRaw(String key)</code></h4>
+<ul>
+<li><p><strong>返回类型:</strong> <code>String</code></p></li>
+<li><p><strong>功能描述:</strong>
+从缓存中获取指定键的原始、未经任何处理的消息字符串。如果设置了
+<code>keyPrefix</code>，会自动应用。如果找不到键，会返回
+<code>null</code> 并在后台记录一条警告。</p></li>
+<li><p><strong>参数说明:</strong></p>
+<ul>
+<li><code>key</code> (<code>String</code>): 消息的键。</li>
+</ul></li>
+<li><p><strong>使用示例:</strong></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 假设 messages.my_plugin.raw_key 在文件中定义为 &quot;&amp;c原始文本&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> rawText <span class="op">=</span> messageService<span class="op">.</span><span class="fu">getRaw</span><span class="op">(</span><span class="st">&quot;raw_key&quot;</span><span class="op">);</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">// rawText 的值将是 &quot;&amp;c原始文本&quot;</span></span></code></pre></div></li>
+</ul></li>
+<li><h4
+id="getstring-key-object...-args"><code>get(String key, Object... args)</code></h4>
+<ul>
+<li><p><strong>返回类型:</strong> <code>String</code></p></li>
+<li><p><strong>功能描述:</strong> 获取原始消息，并立即使用
+<code>String.format</code> 方法进行格式化。这适用于包含 <code>%s</code>,
+<code>%d</code> 等标准 Java 格式化占位符的消息。</p></li>
+<li><p><strong>参数说明:</strong></p>
+<ul>
+<li><code>key</code> (<code>String</code>): 消息的键。</li>
+<li><code>args</code> (<code>Object...</code>): 传递给
+<code>String.format</code> 的参数，用于替换消息中的 <code>%s</code>,
+<code>%d</code> 等。</li>
+</ul></li>
+<li><p><strong>使用示例:</strong></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// yml中: &#39;player_joined: &quot;%s 加入了服务器，在线人数: %d&quot;&#39;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> formattedMsg <span class="op">=</span> messageService<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="st">&quot;player_joined&quot;</span><span class="op">,</span> player<span class="op">.</span><span class="fu">getName</span><span class="op">(),</span> Bukkit<span class="op">.</span><span class="fu">getOnlinePlayers</span><span class="op">().</span><span class="fu">size</span><span class="op">());</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">// formattedMsg -&gt; &quot;Steve 加入了服务器，在线人数: 15&quot;</span></span></code></pre></div></li>
+</ul></li>
+<li><h4
+id="parsestring-key-player-player-mapstring-string-custom"><code>parse(String key, Player player, Map&lt;String, String&gt; custom)</code></h4>
+<ul>
+<li><p><strong>返回类型:</strong> <code>String</code></p></li>
+<li><p><strong>功能描述:</strong>
+对指定键的消息执行完整的、多阶段的占位符解析流程。解析顺序为：1.
+自定义占位符 (<code>%key%</code>) -&gt; 2. 内部占位符
+(<code>{key:args}</code>) -&gt; 3. PAPI
+占位符。这是最常用的消息获取和处理方法。</p></li>
+<li><p><strong>参数说明:</strong></p>
+<ul>
+<li><code>key</code> (<code>String</code>): 消息的键。</li>
+<li><code>player</code> (<code>Player</code>): PAPI
+和部分内部占位符所需的上下文玩家，可以为 <code>null</code>。</li>
+<li><code>custom</code> (<code>Map&lt;String, String&gt;</code>):
+一个包含自定义占位符及其替换值的 Map。键是不带 <code>%</code>
+的占位符名称。</li>
+</ul></li>
+<li><p><strong>使用示例:</strong></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// yml中: &#39;welcome: &quot;&amp;a欢迎, %rank% %player_name%！你的余额是: {money}。&quot;&#39;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">String</span><span class="op">&gt;</span> customPlaceholders <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashMap</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>customPlaceholders<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;rank&quot;</span><span class="op">,</span> <span class="st">&quot;[VIP]&quot;</span><span class="op">);</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> welcomeMsg <span class="op">=</span> messageService<span class="op">.</span><span class="fu">parse</span><span class="op">(</span><span class="st">&quot;welcome&quot;</span><span class="op">,</span> player<span class="op">,</span> customPlaceholders<span class="op">);</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">// 最终消息可能是: &quot;欢迎, [VIP] Steve！你的余额是: $1,234.56。&quot;</span></span></code></pre></div></li>
+</ul></li>
+<li><h4 id="getliststring-key"><code>getList(String key)</code></h4>
+<ul>
+<li><p><strong>返回类型:</strong>
+<code>List&lt;String&gt;</code></p></li>
+<li><p><strong>功能描述:</strong>
+从语言文件中获取一个字符串列表，通常用于发送多行消息。若设置了
+<code>keyPrefix</code>，在传入的键缺少该前缀时会自动补全。</p></li>
+<li><p><strong>参数说明:</strong></p>
+<ul>
+<li><code>key</code> (<code>String</code>): 消息列表在 YAML
+文件中的键（可省略前缀）。</li>
+</ul></li>
+<li><p><strong>使用示例:</strong></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// yml中:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">// help_info:</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">//   - &quot;&amp;e/cmd help - 显示帮助&quot;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">//   - &quot;&amp;e/cmd info - 查看信息&quot;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> helpLines <span class="op">=</span> messageService<span class="op">.</span><span class="fu">getList</span><span class="op">(</span><span class="st">&quot;help_info&quot;</span><span class="op">);</span></span></code></pre></div></li>
+</ul></li>
+<li><h4
+id="parseliststring-key-player-player-mapstring-string-custom"><code>parseList(String key, Player player, Map&lt;String, String&gt; custom)</code></h4>
+<ul>
+<li><p><strong>返回类型:</strong>
+<code>List&lt;String&gt;</code></p></li>
+<li><p><strong>功能描述:</strong>
+获取一个消息列表，并对列表中的每一行字符串都执行完整的、多阶段的占位符解析。若传入的键未包含
+<code>keyPrefix</code>，会先通过 <code>getList</code>
+自动补全。</p></li>
+<li><p><strong>参数说明:</strong></p>
+<ul>
+<li><code>key</code> (<code>String</code>):
+消息列表的键（可省略前缀）。</li>
+<li><code>player</code> (<code>Player</code>): 上下文玩家。</li>
+<li><code>custom</code> (<code>Map&lt;String, String&gt;</code>):
+自定义占位符 Map。</li>
+</ul></li>
+<li><p><strong>使用示例:</strong></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// yml中:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">// player_stats:</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">//   - &quot;&amp;6玩家: %player_name%&quot;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">//   - &quot;&amp;c生命值: %player_health%/%player_max_health%&quot;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">//   - &quot;&amp;b余额: {money}&quot;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> parsedStats <span class="op">=</span> messageService<span class="op">.</span><span class="fu">parseList</span><span class="op">(</span><span class="st">&quot;player_stats&quot;</span><span class="op">,</span> player<span class="op">,</span> <span class="bu">Collections</span><span class="op">.</span><span class="fu">emptyMap</span><span class="op">());</span></span></code></pre></div></li>
+</ul></li>
+<li><h4
+id="registerinternalplaceholderstring-key-bifunctionplayer-string-string-resolver"><code>registerInternalPlaceholder(String key, BiFunction&lt;Player, String, String&gt; resolver)</code></h4>
+<ul>
+<li><p><strong>返回类型:</strong> <code>void</code></p></li>
+<li><p><strong>功能描述:</strong> 注册一个内部占位符，格式为
+<code>{key}</code> 或 <code>{key:args}</code>。这些占位符由
+<code>MessageService</code> 内部处理，不依赖 PAPI，性能更高，且能与
+<code>MessageService</code> 的其他功能（如
+<code>args</code>）紧密集成。</p></li>
+<li><p><strong>参数说明:</strong></p>
+<ul>
+<li><code>key</code> (<code>String</code>):
+内部占位符的键（不带花括号）。</li>
+<li><code>resolver</code>
+(<code>BiFunction&lt;Player, String, String&gt;</code>):
+一个处理函数，它接收一个 <code>Player</code> 对象和一个
+<code>String</code> 类型的
+<code>args</code>（即占位符中冒号后面的内容），并返回最终要显示的字符串。</li>
+</ul></li>
+<li><p><strong>使用示例:</strong></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 注册一个 {item_name:main_hand} 占位符</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>messageService<span class="op">.</span><span class="fu">registerInternalPlaceholder</span><span class="op">(</span><span class="st">&quot;item_name&quot;</span><span class="op">,</span> <span class="op">(</span>player<span class="op">,</span> args<span class="op">)</span> <span class="op">-&gt;</span> <span class="op">{</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>player <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="cf">return</span> <span class="st">&quot;未知物品&quot;</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="st">&quot;main_hand&quot;</span><span class="op">.</span><span class="fu">equalsIgnoreCase</span><span class="op">(</span>args<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        ItemStack item <span class="op">=</span> player<span class="op">.</span><span class="fu">getInventory</span><span class="op">().</span><span class="fu">getItemInMainHand</span><span class="op">();</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> item <span class="op">!=</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> item<span class="op">.</span><span class="fu">hasItemMeta</span><span class="op">()</span> <span class="op">?</span> item<span class="op">.</span><span class="fu">getItemMeta</span><span class="op">().</span><span class="fu">getDisplayName</span><span class="op">()</span> <span class="op">:</span> <span class="st">&quot;空手&quot;</span><span class="op">;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;无效参数&quot;</span><span class="op">;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="op">});</span></span></code></pre></div></li>
+</ul></li>
+<li><h4
+id="sendplayer-player-string-key"><code>send(Player player, String key)</code></h4>
+<ul>
+<li><p><strong>返回类型:</strong> <code>void</code></p></li>
+<li><p><strong>功能描述:</strong>
+解析（不带自定义占位符）并向指定玩家发送单条消息。这是一个便捷方法。</p></li>
+<li><p><strong>参数说明:</strong></p>
+<ul>
+<li><code>player</code> (<code>Player</code>): 接收消息的玩家。</li>
+<li><code>key</code> (<code>String</code>): 消息的键。</li>
+</ul></li>
+<li><p><strong>使用示例:</strong></p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>messageService<span class="op">.</span><span class="fu">send</span><span class="op">(</span>player<span class="op">,</span> <span class="st">&quot;action_completed_successfully&quot;</span><span class="op">);</span></span></code></pre></div></li>
+</ul></li>
+<li><h4
+id="sendcommandsender-target-string-key-mapstring-string-custom"><code>send(CommandSender target, String key, Map&lt;String, String&gt; custom)</code></h4>
+<ul>
+<li><p><strong>返回类型:</strong> <code>void</code></p></li>
+<li><p><strong>功能描述:</strong>
+解析（带自定义占位符）并向指定目标（玩家或控制台）发送单条消息。这是最通用的单条消息发送方法。</p></li>
+<li><p><strong>参数说明:</strong></p>
+<ul>
+<li><code>target</code> (<code>CommandSender</code>): 消息接收者。</li>
+<li><code>key</code> (<code>String</code>): 消息的键。</li>
+<li><code>custom</code> (<code>Map&lt;String, String&gt;</code>):
+自定义占位符 Map。</li>
+</ul></li>
+<li><p><strong>使用示例:</strong></p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">String</span><span class="op">&gt;</span> data <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashMap</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;item_name&quot;</span><span class="op">,</span> <span class="st">&quot;钻石剑&quot;</span><span class="op">);</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>messageService<span class="op">.</span><span class="fu">send</span><span class="op">(</span>sender<span class="op">,</span> <span class="st">&quot;item_given&quot;</span><span class="op">,</span> data<span class="op">);</span></span></code></pre></div></li>
+</ul></li>
+<li><h4
+id="sendlistcommandsender-target-string-key"><code>sendList(CommandSender target, String key)</code></h4>
+<ul>
+<li><p><strong>返回类型:</strong> <code>void</code></p></li>
+<li><p><strong>功能描述:</strong>
+解析（不带自定义占位符）并向目标发送一个消息列表。</p></li>
+<li><p><strong>参数说明:</strong></p>
+<ul>
+<li><code>target</code> (<code>CommandSender</code>): 消息接收者。</li>
+<li><code>key</code> (<code>String</code>): 消息列表的键。</li>
+</ul></li>
+<li><p><strong>使用示例:</strong></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>messageService<span class="op">.</span><span class="fu">sendList</span><span class="op">(</span>player<span class="op">,</span> <span class="st">&quot;plugin_help_menu&quot;</span><span class="op">);</span></span></code></pre></div></li>
+</ul></li>
+<li><h4
+id="sendlistcommandsender-target-string-key-mapstring-string-custom"><code>sendList(CommandSender target, String key, Map&lt;String, String&gt; custom)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong>
+解析（带自定义占位符）并向目标发送一个消息列表。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>target</code> (<code>CommandSender</code>): 消息接收者。</li>
+<li><code>key</code> (<code>String</code>): 消息列表的键。</li>
+<li><code>custom</code> (<code>Map&lt;String, String&gt;</code>):
+自定义占位符 Map。</li>
+</ul></li>
+</ul></li>
+<li><h4 id="broadcaststring-key"><code>broadcast(String key)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong>
+解析并向全服所有在线玩家广播一条消息。PAPI
+占位符将无法针对特定玩家解析，因此请使用不依赖玩家的占位符。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>key</code> (<code>String</code>): 消息的键。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="broadcaststring-key-mapstring-string-custom-string-permission"><code>broadcast(String key, Map&lt;String, String&gt; custom, String permission)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong>
+解析并向全服拥有指定权限的玩家广播一条消息。消息会为每个玩家单独解析，因此可以使用玩家相关的
+PAPI 占位符。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>key</code> (<code>String</code>): 消息的键。</li>
+<li><code>custom</code> (<code>Map&lt;String, String&gt;</code>):
+自定义占位符 Map。</li>
+<li><code>permission</code> (<code>String</code>):
+玩家需要拥有的权限节点。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="broadcastliststring-key-mapstring-string-custom-string-permission"><code>broadcastList(String key, Map&lt;String, String&gt; custom, String permission)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong>
+解析并向全服拥有指定权限的玩家广播一个消息列表。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>key</code> (<code>String</code>): 消息列表的键。</li>
+<li><code>custom</code> (<code>Map&lt;String, String&gt;</code>):
+自定义占位符 Map。</li>
+<li><code>permission</code> (<code>String</code>): 权限节点。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="sendrawcommandsender-target-string-rawmessage"><code>sendRaw(CommandSender target, String rawMessage)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong>
+直接发送一条原始的、未经任何消息键查找和占位符解析的字符串消息。此方法仍然会自动处理颜色代码。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>target</code> (<code>CommandSender</code>): 消息接收者。</li>
+<li><code>rawMessage</code> (<code>String</code>):
+要发送的原始消息文本。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="sendrawlistcommandsender-target-liststring-rawmessages"><code>sendRawList(CommandSender target, List&lt;String&gt; rawMessages)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong>
+直接发送一个原始字符串列表，每行都会被处理颜色代码。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>target</code> (<code>CommandSender</code>): 消息接收者。</li>
+<li><code>rawMessages</code> (<code>List&lt;String&gt;</code>):
+要发送的原始消息列表。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="sendoptimizedchatplayer-player-liststring-messages"><code>sendOptimizedChat(Player player, List&lt;String&gt; messages)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong> 优化地向玩家发送多行聊天消息，实际上是
+<code>sendColorizedList</code> 的别名。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>player</code> (<code>Player</code>): 目标玩家。</li>
+<li><code>messages</code> (<code>List&lt;String&gt;</code>):
+已经解析和处理好颜色的消息列表。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="sendactionbarplayer-player-string-key-mapstring-string-custom"><code>sendActionBar(Player player, String key, Map&lt;String, String&gt; custom)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong> 解析并通过 ActionBar
+向玩家发送单行消息。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>player</code> (<code>Player</code>): 目标玩家。</li>
+<li><code>key</code> (<code>String</code>): 消息键。</li>
+<li><code>custom</code> (<code>Map&lt;String, String&gt;</code>):
+自定义占位符。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="sendstagedactionbarplayer-player-liststring-messages"><code>sendStagedActionBar(Player player, List&lt;String&gt; messages)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong> 逐条地向玩家发送 ActionBar 消息。由于
+ActionBar
+会被新的消息覆盖，这个方法的效果是快速连续地显示列表中的每一条消息。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>player</code> (<code>Player</code>): 目标玩家。</li>
+<li><code>messages</code> (<code>List&lt;String&gt;</code>): 要在
+ActionBar 上显示的消息列表。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="sendtitleplayer-player-string-titlekey-string-subkey-mapstring-string-custom"><code>sendTitle(Player player, String titleKey, String subKey, Map&lt;String, String&gt; custom)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong> 解析并向玩家发送标题和副标题。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>player</code> (<code>Player</code>): 目标玩家。</li>
+<li><code>titleKey</code> (<code>String</code>): 主标题的消息键。</li>
+<li><code>subKey</code> (<code>String</code>): 副标题的消息键。</li>
+<li><code>custom</code> (<code>Map&lt;String, String&gt;</code>):
+自定义占位符。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="sendstagedtitleplayer-player-liststring-titles-liststring-subtitles"><code>sendStagedTitle(Player player, List&lt;String&gt; titles, List&lt;String&gt; subtitles)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong> 逐条地向玩家发送 Title/Subtitle
+组合。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>player</code> (<code>Player</code>): 目标玩家。</li>
+<li><code>titles</code> (<code>List&lt;String&gt;</code>):
+主标题列表。</li>
+<li><code>subtitles</code> (<code>List&lt;String&gt;</code>):
+副标题列表。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="storemessageobject-context-string-key-mapstring-string-custom"><code>storeMessage(Object context, String key, Map&lt;String, String&gt; custom)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong>
+解析一条消息，但并不立即发送，而是将其存储在一个与特定上下文对象关联的临时列表中。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>context</code> (<code>Object</code>):
+关联的上下文对象，例如一个 <code>UUID</code> 或一个 <code>Player</code>
+对象。</li>
+<li><code>key</code> (<code>String</code>): 消息的键。</li>
+<li><code>custom</code> (<code>Map&lt;String, String&gt;</code>):
+自定义占位符。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="storemessagelistobject-context-string-key-mapstring-string-custom"><code>storeMessageList(Object context, String key, Map&lt;String, String&gt; custom)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong>
+解析一个消息列表，并将其所有行存储到指定的上下文中。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>context</code> (<code>Object</code>): 上下文对象。</li>
+<li><code>key</code> (<code>String</code>): 消息列表的键。</li>
+<li><code>custom</code> (<code>Map&lt;String, String&gt;</code>):
+自定义占位符。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="hasmessagesobject-context"><code>hasMessages(Object context)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>boolean</code></li>
+<li><strong>功能描述:</strong>
+检查指定的上下文中是否存储了任何消息。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>context</code> (<code>Object</code>): 上下文对象。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="countmessagesobject-context"><code>countMessages(Object context)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>int</code></li>
+<li><strong>功能描述:</strong> 计算指定上下文中存储的消息数量。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>context</code> (<code>Object</code>): 上下文对象。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="sendcontextobject-context-player-player-string-channel"><code>sendContext(Object context, Player player, String channel)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong>
+将指定上下文中存储的所有消息，通过指定的渠道（“chat”, “actionbar”,
+“title”）发送给玩家，并在发送后清除该上下文的消息。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>context</code> (<code>Object</code>): 上下文对象。</li>
+<li><code>player</code> (<code>Player</code>): 接收消息的玩家。</li>
+<li><code>channel</code> (<code>String</code>): 发送渠道。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="sendcontextfailuresobject-context-player-player"><code>sendContextFailures(Object context, Player player)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong>
+发送上下文中的消息，通常用于表示失败信息。当前实现等同于通过 “chat”
+渠道发送。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>context</code> (<code>Object</code>): 上下文对象。</li>
+<li><code>player</code> (<code>Player</code>): 目标玩家。</li>
+</ul></li>
+</ul></li>
+<li><h4
+id="sendcontextsuccessesobject-context-player-player"><code>sendContextSuccesses(Object context, Player player)</code></h4>
+<ul>
+<li><strong>返回类型:</strong> <code>void</code></li>
+<li><strong>功能描述:</strong>
+发送上下文中的消息，通常用于表示成功信息。当前实现等同于通过 “chat”
+渠道发送。</li>
+<li><strong>参数说明:</strong>
+<ul>
+<li><code>context</code> (<code>Object</code>): 上下文对象。</li>
+<li><code>player</code> (<code>Player</code>): 目标玩家。</li>
+</ul></li>
+</ul></li>
+</ul>
+</body>
+</html>
